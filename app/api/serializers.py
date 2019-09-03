@@ -8,7 +8,8 @@ class UploadBatchesSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = UploadBatches
-        fields = ('batch_name')
+        fields = ('id',
+                  'batch_name')
 
 class ObservationsSerializer(serializers.ModelSerializer):
     """
@@ -16,7 +17,8 @@ class ObservationsSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Observations
-        fields = ('upload_batch',
+        fields = ('id',
+                  'upload_batch',
                   'observation_name',
                   'lattitude',
                   'longitude',
@@ -35,5 +37,6 @@ class ImagesSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Images
-        fields = ('observation',
+        fields = ('id',
+                  'observation',
                   'image_name')
