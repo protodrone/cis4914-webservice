@@ -39,7 +39,7 @@ class Observations(BaseModel):
 class Images(BaseModel):
     observation = models.ForeignKey(Observations,on_delete=models.CASCADE)
     image_name = models.CharField(max_length=50)
-    # BLOB or file path upload placeholder
+    image = models.ImageField()
     def __str__(self):
         return self.image_name
     class Meta:

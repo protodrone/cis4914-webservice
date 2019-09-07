@@ -39,4 +39,5 @@ class ImagesSerializer(serializers.ModelSerializer):
         model = Images
         fields = ('id',
                   'observation',
-                  'image_name')
+                  'image_name',
+                  'image')
