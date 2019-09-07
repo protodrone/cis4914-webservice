@@ -119,4 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = '/Users/warrenbrown/WarrenForge/cis4913-webservice/app/STATIC'
+
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/Users/warrenbrown/WarrenForge/cis4913-webservice/app/MEDIA_ROOT/'
+
+MEDIA_URL = '/media/'
