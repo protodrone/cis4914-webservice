@@ -1,5 +1,6 @@
 from django.db import models
-import datetime
+from django.conf import settings
+import datetime, uuid
 
 # Base model to include audit trail.
 class BaseModel(models.Model):
@@ -45,3 +46,9 @@ class Images(BaseModel):
     class Meta:
         verbose_name = "Image"
         verbose_name_plural = "Images"
+    def save(self, *args, **kwargs): # Override save to rename file MEDIA_ROOT/BatchID/UUID
+        if self._state.adding: # detect if first save
+            obs = Observations.objects.get(pk=self.observation.id) # get observation object
+            batch = obs.upload_batch.id # get batchID from observation
+            self.image.name = str(batch) + "/" + str(uuid.uuid4()) + self.image.name[self.image.name.rfind('.'):]
+        super().save(*args, **kwargs)
