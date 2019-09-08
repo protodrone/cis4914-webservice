@@ -126,3 +126,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = '/Users/warrenbrown/WarrenForge/cis4913-webservice/app/MEDIA_ROOT/'
 
 MEDIA_URL = '/media/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}

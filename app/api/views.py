@@ -4,6 +4,7 @@ from api.serializers import UploadBatchesSerializer, ObservationsSerializer, Ima
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from api.permissions import IsAPIAuthorized
 
 class UploadBatchesViewSet(viewsets.ModelViewSet):
     """
@@ -14,7 +15,7 @@ class UploadBatchesViewSet(viewsets.ModelViewSet):
     """
     queryset = UploadBatches.objects.all()
     serializer_class = UploadBatchesSerializer
-    #permission_classes to be filled in
+    permission_classes = [IsAPIAuthorized]
 
 class ObservationsViewSet(viewsets.ModelViewSet):
     """
@@ -22,6 +23,7 @@ class ObservationsViewSet(viewsets.ModelViewSet):
     """
     queryset = Observations.objects.all()
     serializer_class = ObservationsSerializer
+    permission_classes = [IsAPIAuthorized]
 
 class ImagesViewSet(viewsets.ModelViewSet):
     """
@@ -29,3 +31,4 @@ class ImagesViewSet(viewsets.ModelViewSet):
     """
     queryset = Images.objects.all()
     serializer_class = ImagesSerializer
+    permission_classes = [IsAPIAuthorized]

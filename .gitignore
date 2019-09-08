@@ -108,3 +108,6 @@ migrations/
 
 # MEDIA_ROOT
 MEDIA_ROOT/
+
+# VS Code
+.vscode
