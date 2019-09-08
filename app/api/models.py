@@ -1,14 +1,23 @@
 from django.db import models
 from django.conf import settings
 import datetime, uuid
+from crum import get_current_user
 
 # Base model to include audit trail.
 class BaseModel(models.Model):
     created_by = models.CharField(max_length=15)
     created_timestamp = models.DateTimeField(auto_now_add=True)
     modified_by = models.CharField(max_length=15)
+    modified_timestamp = models.DateTimeField(auto_now_add=True, null=True)
     class Meta:
         abstract = True
+    def save(self, *args, **kwargs):
+        u = get_current_user()
+        if self._state.adding:
+            self.created_by = u.username
+        self.modified_by = u.username
+        self.modified_timestamp = datetime.datetime.now()
+        super().save(*args, **kwargs)
 
 class UploadBatches(BaseModel):
     batch_name = models.CharField(max_length=50)
