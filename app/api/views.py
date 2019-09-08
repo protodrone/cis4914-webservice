@@ -32,3 +32,5 @@ class ImagesViewSet(viewsets.ModelViewSet):
     queryset = Images.objects.all()
     serializer_class = ImagesSerializer
     permission_classes = [IsAPIAuthorized]
+    # Need to override the destroy() method to delete the
+    # filesystem object. Currently only deletes the DB record.

@@ -7,7 +7,8 @@ from api import views
 schema_view = get_schema_view(title='Specimen Observer API')
 
 # Create a router and register our viewsets
-router = DefaultRouter()
+# Trailing slash dragon. https://www.django-rest-framework.org/api-guide/routers/#defaultrouter
+router = DefaultRouter(trailing_slash=False) 
 router.register(r'batch', views.UploadBatchesViewSet)
 router.register(r'observation', views.ObservationsViewSet)
 router.register(r'image', views.ImagesViewSet)
