@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 import datetime, uuid
 from crum import get_current_user
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 # Base model to include audit trail.
 class BaseModel(models.Model):
@@ -61,3 +63,7 @@ class Images(BaseModel):
             batch = obs.upload_batch.id # get batchID from observation
             self.image.name = str(batch) + "/" + str(uuid.uuid4()) + self.image.name[self.image.name.rfind('.'):]
         super().save(*args, **kwargs)
+
+@receiver(post_delete, sender=Images)
+def submission_delete(sender, instance, **kwargs):
+    instance.image.delete(False)

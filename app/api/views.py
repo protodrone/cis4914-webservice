@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from api.models import UploadBatches, Observations, Images
 from api.serializers import UploadBatchesSerializer, ObservationsSerializer, ImagesSerializer
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from api.permissions import IsAPIAuthorized
+from django.http import Http404
+import os
+from django.conf import settings
 
 class UploadBatchesViewSet(viewsets.ModelViewSet):
     """
@@ -32,5 +35,4 @@ class ImagesViewSet(viewsets.ModelViewSet):
     queryset = Images.objects.all()
     serializer_class = ImagesSerializer
     permission_classes = [IsAPIAuthorized]
-    # Need to override the destroy() method to delete the
-    # filesystem object. Currently only deletes the DB record.
+    
