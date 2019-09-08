@@ -111,3 +111,6 @@ MEDIA_ROOT/
 
 # VS Code
 .vscode
+
+# Mac
+.DS_Store
