@@ -32,8 +32,8 @@ class UploadBatches(BaseModel):
 class Observations(BaseModel):
     upload_batch = models.ForeignKey(UploadBatches,on_delete=models.CASCADE)
     observation_name = models.CharField(max_length=20)
-    lattitude = models.DecimalField(max_digits=11,decimal_places=8,null=True)
-    longitude = models.DecimalField(max_digits=11,decimal_places=8,null=True)
+    lattitude = models.DecimalField(max_digits=25,decimal_places=15,null=True)
+    longitude = models.DecimalField(max_digits=25,decimal_places=15,null=True)
     gps_datum = models.CharField(max_length=10,null=True)
     Text1 = models.CharField(max_length=50,null=True)
     Text2 = models.CharField(max_length=50,null=True)
