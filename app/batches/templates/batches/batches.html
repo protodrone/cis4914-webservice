@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Collecting Companion Field Log{% endblock %}
+{% block body %}
+{% load staticfiles %}
+{% load app_filters %}
+    <header>
+        <nav class="nav">
+            <img class="nav-logo" src="" />
+            <h1 class="site-name">Collecting Companion Field Log</h1>
+            <!-- <a class="nav-link" href="/admin">Admin</a> -->
+        </nav>
+    </header>
+    <main role="main" class="container-fluid p-5">
+        <h2 class="fw-light">Uploaded Batches</h2>
+        <div class="mt-5">
+            <div class="list-group">
+            {% for batch in batches %}
+                <a href="{% url 'batches' batch.id %}" class="list-group-item list-group-item-action">{{ batch.batch_name }}</a>
+            {% endfor %}
+            </div> 
+        </div> 
+    </main><!-- /.container -->    
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Collecting Companion Field Log{% endblock %}
+{% block body %}
+{% load staticfiles %}
+{% load app_filters %}
+<h1>{{ batch_name }} </h1>
+<ul>
+{% for observation in observations %}
+    <li><a href="{% url 'observation_detail' observation.id %}" class="list-group-item list-group-item-action">{{ observation.observation_name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
