@@ -15,9 +15,14 @@
         <h2 class="fw-light">Uploaded Batches</h2>
         <div class="mt-5">
             <div class="list-group">
-            {% for batch in batches %}
-                <a href="{% url 'batches' batch.id %}" class="list-group-item list-group-item-action">{{ batch.batch_name }}</a>
-            {% endfor %}
+                <ul>
+                    {% for batch in batches %}
+                        <li><a href="{% url 'batches' batch.id %}" class="list-group-item list-group-item-action">
+                            {{ batch.batch_name }}</a> Uploaded by {{ batch.created_by }} on {{ batch.created_timestamp }} 
+                            <a href="{% url 'downloadCSV' batch.id %}">Download CSV</a>
+                        </li>
+                    {% endfor %}
+            </ul> 
             </div> 
         </div> 
     </main><!-- /.container -->    

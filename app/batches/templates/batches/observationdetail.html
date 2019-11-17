@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %}Collecting Companion Field Log{% endblock %}
+{% block title %}{{ observation.observation_name }}{% endblock %}
 {% block body %}
 {% load staticfiles %}
 {% load app_filters %}
-<h1>{{ observation.observation_name }} </h1>
+<h1>Observation: {{ observation.observation_name }} from <a href="/batches/{{ observation.upload_batch.id }}">{{ observation.upload_batch.batch_name }}</a></h1>
+<ul>
+    <li>Lattitude: {{ observation.lattitude }}</li>
+    <li>Longitude: {{ observation.longitude }}</li>
+    <li>GPS Datum: {{ observation.gps_datum }}</li>
+    <li>Text1: {{observation.Text1 }}</li>
+    <li>Text2: {{ observation.Text2 }}</li>
+    <li>Text3: {{ observation.Text3 }}</li>
+    <li>Int1: {{ observation.Int1 }}</li>
+    <li>Int2: {{ observation.Int2 }}</li>
+    <li>Int3: {{observation.Int3 }}</li>
+    <li>Notes: {{ observation.notes }}</li>
 
-
+{% if images %}
+    {% for image in images %}
+    <li>Image: <a href="{{ MEDIA_URL }}{{ image.image }}">{{ image.image_name }}</a></li>
+    {% endfor %}
+{% endif %}
+</ul>
+<p><a href="/batches/{{ observation.upload_batch.id }}">Return to batch {{ observation.upload_batch.batch_name }} </a></p>
 {% endblock %}

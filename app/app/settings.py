@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    'batches',
     'rest_framework',
 ]
 
@@ -63,6 +64,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -127,6 +129,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = '/Users/warrenbrown/WarrenForge/cis4913-webservice/app/MEDIA_ROOT/'
 
 MEDIA_URL = '/media/'
+
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

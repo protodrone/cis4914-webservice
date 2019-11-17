@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block body_class %}text-center page-login{% endblock %}
+{% block body %}
+{% load staticfiles %}
+  <main role="main" class="container-fluid">
+        <div class="login-wrapper shadow">
+
+            <img class="mb-4 login-logo" src="{% static 'batches/images/logo.png' %}" />
+
+              {% if form.errors %}
+              <p class="alert alert-danger">Your username and password didn't match. Please try again.</p>
+              {% endif %}
+              
+              {% if next %}
+                  {% if user.is_authenticated %}
+                  <p>Your account doesn't have access to this page. To proceed,
+                  please login with an account that has access.</p>
+                  {% else %}
+                  <p>Please login to see this page.</p>
+                  {% endif %}
+              {% endif %}
+              
+              <form class="form-signin" method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+                <div>
+                  <label class="sr-only" for="{{ form.username.id_for_label }}">Username:</label>
+                  {{ form.username }}
+                </div>
+                <div>
+                  <label class="sr-only" for="{{ form.password.id_for_label }}">Password:</label>
+                  {{ form.password }}
+                </div>
+                
+                <div>
+                  <input class="btn btn-primary btn-block" type="submit" value="Log In" />
+                  <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+              </form>
+              
+        </div>
+  </main><!-- /.container -->    
+{% endblock %}
