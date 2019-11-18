@@ -4,15 +4,30 @@
 {% block body %}
 {% load staticfiles %}
 {% load app_filters %}
-<h1>{{ batch.batch_name }} </h1>
-<ul>
-{% for observation in observations %}
-    <li>
-        <a href="{% url 'observation_detail' observation.id %}" class="list-group-item list-group-item-action">
-            {{ observation.observation_name }}</a>
-        </li>
-{% endfor %}
-</ul>
-<p><a href="{% url 'downloadCSV' batch.id %}">Downlad batch CSV</a></p>
-<p><a href="/batches/">Return to List of Batches</a></p>
+<main role="main" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col"><h1>{{ batch.batch_name }}</h1></div>
+        </div>
+        <div class="row">
+            <div class="col"><h2>Observations:</h2></div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-sm-2">
+                <ul class="list-group">
+                    {% for observation in observations %}
+                        <li class="list-group-item"><a class="" href="{% url 'observation_detail' observation.id %}">{{ observation.observation_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row"><hr></div>
+        <div class="row">
+            <div class="col-sm-3">
+                <a class="btn btn-outline-primary" href="{% url 'downloadCSV' batch.id %}">Downlad batch CSV</a>
+            </div>
+            <div class="col-sm-3"><a class="btn btn-outline-primary" href="/batches/">Return to List of Batches</a></div>
+        </div>
+    </div>
+</main>
 {% endblock %}

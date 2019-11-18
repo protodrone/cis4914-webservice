@@ -5,8 +5,7 @@
 {% load staticfiles %}
   <main role="main" class="container-fluid">
         <div class="login-wrapper shadow">
-
-            <img class="mb-4 login-logo" src="{% static 'batches/images/logo.png' %}" />
+            <img class="mb-4 login-logo" src="{% static 'FieldLog.svg' %}" />
 
               {% if form.errors %}
               <p class="alert alert-danger">Your username and password didn't match. Please try again.</p>
@@ -33,7 +32,7 @@
                 </div>
                 
                 <div>
-                  <input class="btn btn-primary btn-block" type="submit" value="Log In" />
+                  <input class="btn btn-primary" type="submit" value="Log In" />
                   <input type="hidden" name="next" value="{{ next }}" />
                 </div>
               </form>

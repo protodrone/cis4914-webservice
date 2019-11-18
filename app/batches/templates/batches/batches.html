@@ -7,22 +7,20 @@
     <header>
         <nav class="nav">
             <img class="nav-logo" src="" />
-            <h1 class="site-name">Collecting Companion Field Log</h1>
-            <!-- <a class="nav-link" href="/admin">Admin</a> -->
         </nav>
     </header>
-    <main role="main" class="container-fluid p-5">
-        <h2 class="fw-light">Uploaded Batches</h2>
-        <div class="mt-5">
-            <div class="list-group">
-                <ul>
+    <main role="main" class="container-fluid">
+        <h2>Uploaded Batches</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group">
                     {% for batch in batches %}
-                        <li><a href="{% url 'batches' batch.id %}" class="list-group-item list-group-item-action">
-                            {{ batch.batch_name }}</a> Uploaded by {{ batch.created_by }} on {{ batch.created_timestamp }} 
-                            <a href="{% url 'downloadCSV' batch.id %}">Download CSV</a>
-                        </li>
+                            <li class="list-group-item"><a href="{% url 'batches' batch.id %}">{{ batch.batch_name }}</a> uploaded by {{ batch.created_by }} {{ batch.created_timestamp|date:'Y-m-d' }}
+                                <a class="btn btn-outline-primary" href="{% url 'downloadCSV' batch.id %}">Download CSV</a></li>
                     {% endfor %}
-            </ul> 
+                    </ul>
+                </div>
             </div> 
         </div> 
     </main><!-- /.container -->    
