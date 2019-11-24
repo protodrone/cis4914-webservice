@@ -29,6 +29,9 @@ The author wishes to thank [Dr. Peter J. Dobbins](https://www.cise.ufl.edu/dobbi
 
 # Technical
 
+# Project Website
+The official project website is [https://tarlington.xyz](https://tarlington.xyz) and includes links to all
+repositories and mobile app download.
 
 # License
 [logo]: https://i.creativecommons.org/l/by-nc/4.0/88x31.png "Creative Commons License"
