@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Collecting Companion Field Log{% endblock %}
+{% block body %}
+{% load staticfiles %}
+{% load app_filters %}
+    <header>
+        <nav class="nav">
+            <img class="nav-logo" src="" />
+        </nav>
+    </header>
+    <main role="main" class="container-fluid">
+        <h2>Uploaded Batches</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group">
+                    {% for batch in batches %}
+                            <li class="list-group-item"><a href="{% url 'batches' batch.id %}">{{ batch.batch_name }}</a> uploaded by {{ batch.created_by }} {{ batch.created_timestamp|date:'Y-m-d' }}
+                                <a class="btn btn-outline-primary" href="{% url 'downloadCSV' batch.id %}">Download CSV</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div> 
+        </div> 
+    </main><!-- /.container -->    
+{% endblock %}

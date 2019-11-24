@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Collecting Companion Field Log{% endblock %}
+{% block body %}
+{% load staticfiles %}
+{% load app_filters %}
+    <header>
+        <nav class="nav">
+            <img class="nav-logo" src="" />
+        </nav>
+    </header>
+    <main role="main" class="container-fluid">
+        <div class="paragraphs">
+            <div class="span4"><img style="float:right" src="{% static "FieldLog.svg" %}" alt="" width="250" height="250"></div>
+            <div class="content-heading"><h1>The Tarlington Project&trade;</h1></div>
+            <p style="clear:none">Current trends in natural history biological specimen collection increasingly focus on collecting 
+                event metadata, such as two-dimensional imaging and GIS, to facilitate use of the specimen and 
+                collecting event in broader scope ecological research. Whereas specimen collection of the past 
+                could emphasize specimen preservation, modern research demands precision metadata to place the 
+                collecting event in context of space and time. Spatial location and imaging tools have advanced 
+                dramatically in recent decades and transitioned to digital paradigms. Although these digital 
+                measurement tools have become ubiquitous in the modern world, the collecting event metadata pipeline 
+                has not kept pace with the digital revolution and is largely still relegated to the analog world of 
+                paper field logs. Inefficiency and error are inherent to human transcription of analog data, resulting 
+                in lower quality data that takes longer to ingest into museum collection databases and publish to 
+                the research community.</p>
+                <p>To resolve this problem and help the collecting community bridge the digital paradigm shift, The Tarlington 
+                Project&trade; Collecting Companion Field Log has been created. The project provides a software 
+                solution for collecting institutions to implement a digital data pipeline from the field to collection 
+                databases. The developed iOS app replaces traditional paper field logs and leverages the mobile device 
+                camera and GPS for direct digital data acquisition. Batches of collected specimens or observations may 
+                be uploaded to the companion webservice over cellular or WiFi with a screen tap. Collection 
+                managers may logon to the webservice and download the submitted batches and images in an appropriate 
+                format for ingestion into institutional databases. The project is released to the collecting community 
+                and public at large.</p>
+                <p>The Tarlington Project&trade; was developed by <a href="http://warrenhbrown.com">Warren H. Brown</a> as 
+                a senior project in the <a href="https://www.cise.ufl.edu/academics/undergraduate/academic-programs/bachelors-degree-programs/">
+                Computer Science (CSC) program</a> at the <a href="https://ufl.edu">University of Florida</a> during the fall of 2019. 
+                The author wishes to thank <a href="https://www.cise.ufl.edu/dobbins-peter/">Dr. Peter J. Dobbins</a> for for his patience, guidance, 
+                wisdom, early morning schedule, and academic encouragement. Additional thanks to the 
+                <a href="https://floridamuseum.ufl.edu">Florida Museum of Natural History</a> Collection Managers, Ichthyology 
+                Collection Manager <a href="https://www.floridamuseum.ufl.edu/museum-voices/rob-robins/">Robert H. Robins</a>
+                 for his design input and agreement to beta test the app in early 2020, 
+                and to Dr. Scott A. Wilson for his support and encouragement.</p>
+                </p>
+
+                
+        </div>
+    </main><!-- /.container -->    
+    {% endblock %}

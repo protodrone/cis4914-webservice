@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block branding %}
+{% load staticfiles %}
     <span>
-        <a class="navbar-brand" rel="nofollow" href="/api/">Community Science Specimen Observations Webservice</a>
+        <a class="navbar-brand" rel="nofollow" href="/">Collecting Companion Field Log</a>
+        <a class="navbar-brand" rel="nofollow" href="{% url 'batches' %}">Batch Viewer</a>
     </span>
 {% endblock %}
 

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ observation.observation_name }}{% endblock %}
+{% block body %}
+{% load staticfiles %}
+{% load app_filters %}
+<main role="main" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <h1>Observation: {{ observation.observation_name }} from <a href="/batches/{{ observation.upload_batch.id }}">{{ observation.upload_batch.batch_name }}</a></h1>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <ul class="list-group">
+                    <li class="list-group-item">Lattitude: {{ observation.lattitude }}</li>
+                    <li class="list-group-item">Longitude: {{ observation.longitude }}</li>
+                    <li class="list-group-item">GPS Datum: {{ observation.gps_datum }}</li>
+                    <li class="list-group-item">Text1: {{observation.Text1 }}</li>
+                    <li class="list-group-item">Text2: {{ observation.Text2 }}</li>
+                    <li class="list-group-item">Text3: {{ observation.Text3 }}</li>
+                    <li class="list-group-item">Int1: {{ observation.Int1 }}</li>
+                    <li class="list-group-item">Int2: {{ observation.Int2 }}</li>
+                    <li class="list-group-item">Int3: {{observation.Int3 }}</li>
+                    <li class="list-group-item">Notes: {{ observation.notes }}</li>
+                    {% if images %}
+                        {% for image in images %}
+                            <li class="list-group-item">Image: <a href="{{ MEDIA_URL }}{{ image.image }}">{{ image.image_name }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="row"><hr></div>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-outline-primary" href="/batches/{{ observation.upload_batch.id }}">Return to {{ observation.upload_batch.batch_name }}</a>
+            </div>
+        </div>
+
+
+
+</div>
+{% endblock %}
