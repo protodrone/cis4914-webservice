@@ -18,9 +18,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
+from batches import views as batchviews
 
 urlpatterns = [
-    path('', include('batches.urls')),
+    path('', batchviews.WelcomePage.as_view(), name='welcome'),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
     path('batches/', include('batches.urls')),

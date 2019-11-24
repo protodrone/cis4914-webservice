@@ -11,10 +11,24 @@ class UploadBatchesSerializer(serializers.ModelSerializer):
         fields = ('id',
                   'batch_name')
 
+class ImagesSerializer(serializers.ModelSerializer):
+    """
+    Observation Images
+    """
+    class Meta:
+        model = Images
+        fields = ('id',
+                  'observation',
+                  'image_name',
+                  'image')
+
+
 class ObservationsSerializer(serializers.ModelSerializer):
     """
     Specimen Observations
     """
+    #images = ImagesSerializer(many=True, read_only=True)
+
     class Meta:
         model = Observations
         fields = ('id',
@@ -31,13 +45,3 @@ class ObservationsSerializer(serializers.ModelSerializer):
                   'Int3',
                   'notes')
 
-class ImagesSerializer(serializers.ModelSerializer):
-    """
-    Observation Images
-    """
-    class Meta:
-        model = Images
-        fields = ('id',
-                  'observation',
-                  'image_name',
-                  'image')

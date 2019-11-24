@@ -13,6 +13,9 @@ from api.models import Images
 from .batch_utilities import batchImageDepth
 import csv
 
+class WelcomePage(TemplateView):
+    template_name = 'batches/welcomepage.html'
+
 class BatchesList(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = 'is_download_authorized'
     model = UploadBatches
