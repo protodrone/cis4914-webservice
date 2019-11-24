@@ -28,6 +28,16 @@ The Tarlington Project&trade; was developed by [Warren H. Brown](http://warrenhb
 The author wishes to thank [Dr. Peter J. Dobbins](https://www.cise.ufl.edu/dobbins-peter "Peter J. Dobbins Faculty Website") for for his patience, guidance, wisdom, early morning schedule, and academic encouragement. Additional thanks to the [Florida Museum of Natural History](https://floridamuseum.ufl.edu "Florida Museum of Natural History") Collection Managers, Ichthyology Collection Manager [Robert H. Robins](https://www.floridamuseum.ufl.edu/museum-voices/rob-robins/ "Robert H. Robin's staff page") for his design input and agreement to beta test the app in early 2020, and to Dr. Scott A. Wilson for his support and encouragement.
 
 # Technical
+The Collecting Companion Field Log webservice is written in Python Django. Required libraries are listed in
+requirements.txt. Use of a Python Virtual Environment is recommended as is pip install -r requirements.txt.
+
+Fresh installs will need to review and configure settings.py appropriately, make and install migrations, create a superuser, and create the following groups:
+* is_api_authorized
+* is_download_authorized
+
+Membership in these groups controls api and batch download access, respectively. The Django admin control panel is used for group and user management. 
+
+For obvious reasons, it is strongly recommended that the webservice be deployed via HTTPS only.
 
 # Project Website
 The official project website is [https://tarlington.xyz](https://tarlington.xyz) and includes links to all
