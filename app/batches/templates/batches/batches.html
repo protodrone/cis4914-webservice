@@ -17,7 +17,10 @@
                     <ul class="list-group">
                     {% for batch in batches %}
                             <li class="list-group-item"><a href="{% url 'batches' batch.id %}">{{ batch.batch_name }}</a> uploaded by {{ batch.created_by }} {{ batch.created_timestamp|date:'Y-m-d' }}
-                                <a class="btn btn-outline-primary" href="{% url 'downloadCSV' batch.id %}">Download CSV</a></li>
+                                <a class="btn btn-outline-primary" href="{% url 'downloadCSV' batch.id %}">Download CSV</a>
+                                <a class="btn btn-outline-primary" href="{% url 'deletebatch' batch.id %}">Delete Batch</a>
+                            </li>
+                    
                     {% endfor %}
                     </ul>
                 </div>

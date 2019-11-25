@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic import ListView
@@ -46,6 +47,13 @@ class ObservationDetail(LoginRequiredMixin, PermissionRequiredMixin, DetailView)
         context = super().get_context_data(**kwargs)
         context['images'] = Images.objects.filter(observation=self.kwargs['pk'])
         return context
+
+@login_required
+@permission_required('is_download_authorized')
+def DeleteBatch(request,batchId):
+    batch = get_object_or_404(UploadBatches, pk=batchId)
+    batch.delete()
+    return redirect('batches')
 
 @login_required
 @permission_required('is_download_authorized')
